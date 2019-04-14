@@ -1,0 +1,26 @@
+#include <stdio.h>
+int main()
+{
+	int a;
+	int c = 0;
+	int i=0;
+	int it[6] = { -1 };
+	scanf("%d",&a);
+	while (a!=0) 
+		{
+		c = a % 10;
+		a = a / 10;
+		i++;
+		it[i] = c;
+	}
+	printf("%dnumbers\n", i);
+    for(int j=i;j>=1;j--){
+    	printf("%d\n",it[j]);
+	}
+	 for(int j=1;j<=i;j++){
+    	printf("%d",it[j]);
+	}
+	return 0;
+}
+
+

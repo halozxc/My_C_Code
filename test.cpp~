@@ -1,0 +1,16 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+	int a;
+        long long b=(long long)a;
+	float c;
+b=9000000;
+a=b;
+	cout<<a<<endl;
+	cout<<sizeof(b)<<endl;
+		 cout<<sizeof(c)<<endl;
+        return 0;
+		 
+}
+

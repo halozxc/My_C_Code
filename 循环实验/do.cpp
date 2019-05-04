@@ -14,5 +14,5 @@ int main(){
 	}
 	while(i<=100);
 	printf("%d\n",a);
-    printf("%d\n",b);
+    printf("%l\n",b);
 }

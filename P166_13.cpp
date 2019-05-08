@@ -15,5 +15,5 @@ void Charlink(char* first,char*second)
 	while(*first)
 	      first++;
     while((*first++ = *second++)!='\0');
-    \*return temp;*/
+   
 }

@@ -3,7 +3,7 @@
 #include<string.h>
 void Vcopy(char* a,char* b,int p)
 {
-    b+=p;
+    b+=(p-1);
     while((*a++=*b++)!='\0');
 }
 int main()

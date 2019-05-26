@@ -3,7 +3,9 @@
 int main()
 {
 void  Charcombine(char* first,char* second);
-char c[80]="acegik",d[80]="bdfh";
+char c[80],d[80];
+gets(c);
+gets(d);
 Charcombine(c,d);
 printf("%s",c);
 return 0;
@@ -22,6 +24,7 @@ void Charcombine(char* first,char*second)
     *temp++=*second++;
    }
    while((*temp++=*first++)!='\0');
+   temp--;//¸²¸Çµô'\0'
    while((*temp++=*second++)!='\0');
    while((*first2++=*temp2++)!='\0');
 }

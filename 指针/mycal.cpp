@@ -10,8 +10,8 @@ int main(int a,char** str){
 	float res;
 
     res=trans(str[1]);
-    printf("%s\n",str[1]);
-	printf("%f",res);
+ 
+	printf("%.0f",res);
 }
 float trans(char* x)
 {
@@ -26,8 +26,7 @@ float trans(char* x)
     d=*x++;
     while(*x!='\0')
     b=b*10+*x++ -'0';
-   printf("%f\n",a);
-   printf("%f\n",b);
+  
 	switch (d)
 	{
      case '+':

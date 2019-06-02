@@ -42,7 +42,7 @@ int main()
 			printf ("现在请输入学生%d姓名\n" ,count+1);
 			getchar();
 			gets(Stu[count].name);
-		     printf ("课程名\n" );
+		    printf ("课程名\n" );
 			gets(Stu[count].CourseName);
 			printf("课程序号\n");
 			scanf("%d",&Stu[count].CourseNum);

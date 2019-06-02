@@ -47,4 +47,5 @@ int main(){
 sort();
 for(int i=0;i<n;i++)
 printf("%s的价格是%.2f\n",NewBookList[i].name,NewBookList[i].price);
+fclose(fp); 
 } 

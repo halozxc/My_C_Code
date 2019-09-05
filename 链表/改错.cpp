@@ -103,11 +103,11 @@ printf("%d\n",p->num);
 printf("input a number to search");
 scanf("%d",&num);
 if(searchv(head,num)>=0)
-printf("%d\n",searchv(head,num));
+printf("id of the node:%d\n",searchv(head,num));
 printf("input a id to search");
 scanf("%d",&num);
 if(searchi(head,num)>=0)
-printf("%d\n",searchi(head,num));
+printf("value of the node:%d\n",searchi(head,num));
 printf("input a node id you want to insert");
 scanf("%d",&num);
 head=insertn(head,num);

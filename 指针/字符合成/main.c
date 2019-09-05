@@ -4,7 +4,9 @@ int main()
 {
 void  Charcombine(char* first,char* second);
 char c[80],d[80];
+printf("input string1\n");
 gets(c);
+printf("input string2\n");
 gets(d);
 Charcombine(c,d);
 printf("%s",c);
@@ -16,7 +18,7 @@ void Charcombine(char* first,char*second)
 	char* temp=s;
 	char* temp2=s;
 	char*first2=first;
-   printf("%s\n",first2);
+  // printf("%s\n",first2);
     while((*first!='\0')&&(*second!='\0'))
    {if(*first<*second)
     *temp++=*first++;

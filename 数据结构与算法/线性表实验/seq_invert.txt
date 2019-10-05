@@ -1,0 +1,27 @@
+#include<stdio.h>
+typedef struct product
+{
+
+   char productName[20]; //产品名
+
+   int saleAmount ;//销量
+
+   
+} ;
+typedef struct product *PNode
+struct linkQueue_product{
+    PNode h;//队列头
+    PNode t;//队列尾
+}
+typedef struct linkQueue_product *Plinkqueue;
+PlinkQueue createEmptyQueue_link(void)
+{
+   Pl
+}
+
+void enQueue_seq()
+
+int main()
+{
+
+}

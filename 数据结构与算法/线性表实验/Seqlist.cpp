@@ -165,3 +165,19 @@ void SL_Print(SeqList* slist)
 	printf("\n");	
 	
 }
+bool SL_Insaf(SeqList* slist, T x)
+// 在顺序表的位置i插入结点x, 插入d[i]之前
+// i的有效范围[0,plist->len]
+{
+    // 请在这里补充代码，完成本关任务
+    /********** Begin *********/
+if(slist->len==slist->max) 
+    {
+        return false;
+    }
+else
+{
+    slist->data[slist->len]= x;
+    slist->len++;
+	return true;
+}

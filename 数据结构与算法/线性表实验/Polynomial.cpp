@@ -36,24 +36,29 @@ void print_poly(Node p,int x)
     {
     printf("Y%d=",x);
     Node h=p;
-    while(p!=NULL)
+    while(h!=NULL)
     {
         if(p==h)
         {
-            if(p->exp==0) printf("%.1f",p->coef,p->exp);
-            else printf("%.1fx^%d",p->coef,p->exp);
+            if(h->exp==0) printf("%.1f",h->coef,h->exp);
+            else printf("%.1fx^%d",h->coef,h->exp);
         
         }
         else 
         {
-            if(p->coef>0) printf("+%.1fx^%d",p->coef,p->exp);
-            else printf("%.1fx^%d",p->coef,p->exp);
             
+            if(h->coef>1) {
+                printf("+%.1fx^%d",h->coef,h->exp);
+            }
+            else {
+                printf("%.1fx^%d",h->coef,h->exp);
+            }
         }
         
-        p=p->next;
+        h=h->next;
     }
     printf("\n");
+    
     }
 void add_poly(Node pa,Node pb,int o)
 {
@@ -125,13 +130,12 @@ int main()
     {
     int x=0;
     scanf("%d",&x);
-   
     Node x1=init_Node();//建立多项式1
-   print_poly(x1,1);
+    print_poly(x1,1);
     Node x2=init_Node();//建立多项式2
      print_poly(x2,2);
     add_poly(x1,x2,x);//x是用来控制加减法的
-    print_poly(x1,3);
-    
+    printf("%d",x1->coef);
+    //print_poly(x1,3);
     return 0;
     }

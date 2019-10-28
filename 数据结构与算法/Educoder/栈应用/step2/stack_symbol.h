@@ -2,6 +2,7 @@
 #define _STACK_H_
 #include <stdlib.h>
 #include <iostream>
+#include <queue>
 using namespace std;
 
 typedef char DataType;
@@ -98,34 +99,40 @@ void inToPost(char *expression)
    
    //Stack N=createStack();
    Stack S=createStack();
-   char result[100];
-   int pos=0;
-   while(*expression!='\0')
-   {
-     if(*expression=='#'){
-        if(isEmpty(S))
-        {
-           push(*expression,S);//表达式自此开始
-        }
-        else
-        {
-           break;//表达式自此结束；
-        }
-        
-     }
+   queue<char> result;
+   
+   while(*expression!='\n'){
+      cout<<*expression<<endl;
+      // if(*expression>='0'&&*expression<='9'){
+      //    result.push(*expression);
+
+      // }
+      // else if(*expression=='+'||*expression=='-'){
+      //    result.push(' ');
+      //    while(!isEmpty(S)||top(S)!='('){
+      //       result.push(pop(S));
+      //    }
+      //    push(*expression,S);
+      // }
+      // else if(*expression=='*'||*expression=='/'||*expression=='('){
+      //   push(*expression,S);
+      // }
+      // else if(*expression==')')
+      // {
+      //   char p;
+      //   while((p=pop(S))!='('){
+      //          result.push(' ');
+      //          result.push(p);
+      //   } 
+      // }
+      expression++;
      
-     while(*expression>'0'&&*expression<'9'){
-       cout<<*expression;
-        expression++;
-     }
-     
-     if(*expression=='+'||*expression=='-'){
-        push(*expression,S);
       }
-      //if(*expression=='+'||*expression=='-')
-   }
-   
-   
-   /**********  End  **********/
+   //       while(!result.empty()){
+   //       cout<<result.front();
+   //       result.pop();
+   // }
 }
+   /**********  End  **********/
+
 #endif

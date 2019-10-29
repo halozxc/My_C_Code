@@ -92,47 +92,49 @@ DataType top(Stack s)
    函数参数：中缀表达式，放在字符数组中 
    返回值：无 
 */
-void inToPost(char *expression)
+void inToPost(char expression[])
 {
    //在此处填写代码，完成中缀表达式转换为后缀表达式并输出
    /**********  Begin  **********/
    
    //Stack N=createStack();
    Stack S=createStack();
-   queue<char> result;
-   
-   while(*expression!='\n'){
-      cout<<*expression<<endl;
-      // if(*expression>='0'&&*expression<='9'){
-      //    result.push(*expression);
-
-      // }
-      // else if(*expression=='+'||*expression=='-'){
-      //    result.push(' ');
-      //    while(!isEmpty(S)||top(S)!='('){
-      //       result.push(pop(S));
-      //    }
-      //    push(*expression,S);
-      // }
-      // else if(*expression=='*'||*expression=='/'||*expression=='('){
-      //   push(*expression,S);
-      // }
-      // else if(*expression==')')
-      // {
-      //   char p;
-      //   while((p=pop(S))!='('){
-      //          result.push(' ');
-      //          result.push(p);
-      //   } 
-      // }
-      expression++;
-     
+   char result[100]="";
+   int i=0,j=0;
+   cout<<expression[0];
+   while(expression[i]!='\0'){
+     cout<<expression[i]<<endl;
+      if(expression[i]>='0'&&expression[i]<='9'){
+         result[j]=(expression[i]);
+         j++;
       }
-   //       while(!result.empty()){
-   //       cout<<result.front();
-   //       result.pop();
-   // }
-   return ;
+      else if(expression[i]=='+'||expression[i]=='-')
+      {
+         
+         while(!isEmpty(S)||top(S)!='('){
+            result[j]=pop(S);
+            j++;
+         }
+         push(expression[i],S);
+      }
+      else if(expression[i]=='*'||expression[i]=='/'||expression[i]=='(')
+      {
+        push(expression[i],S);
+      }
+      else if(expression[i]==')')
+      {
+        char p;
+        while((p=pop(S))!='('){
+               result[j]=p;
+               j++;
+        } 
+      }
+      i++;
+    cout<<result[j];
+      }
+      cout<<result;
+  
+     return ;
 }
    /**********  End  **********/
 

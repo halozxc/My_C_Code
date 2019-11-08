@@ -9,6 +9,8 @@ struct treeNode{
     char data;
     //这记录了该节点的层级
     int layer;
+    //这是key
+    int key;
     //这是左节点
     treeNode* left;
     //这是右节点
@@ -179,6 +181,63 @@ void levelacess(treeNode *x){//层次遍历
             path.push(p->right);
         }
     }
+}
+void InsertBST(treeNode *x,char t,int key){
+    treeNode *p=x;
+    treeNode *q=x;
+    if(x=NULL){
+        x->data=t;
+        x->key=key;
+        x->left=NULL;
+        x->right=NULL;
+        
+    }
+    else
+    {
+        while(p!=NULL){
+            q=p;
+            if(p->key<key){
+                p=p->left;
+            }
+            else if(p->key>key){
+                p=p->right;
+            }
+        else{
+            return;
+        }
+        }    
+        p=(treeNode*)malloc(sizeof(treeNode));       
+        p->data=t;
+        p->key=key;
+        p->left=NULL;
+        p->right=NULL;
+        if(p->key<q->key){
+            q->left=p;
+        }
+        else{
+            q->right=p;
+        }
+    }
+    return;
+}
+bool searchBST(treeNode *p,int key){
+    treeNode *x=p;
+    while(x!=NULL){
+        if(x->key==key){
+            return true;
+
+        }
+        else if(x->key>key)
+        {
+            x=x->right;
+
+        }
+        else if(x->key<key)
+        {
+            x=x->left;
+        }
+    }
+    return false;
 }
 int main(){
 numcount=0;

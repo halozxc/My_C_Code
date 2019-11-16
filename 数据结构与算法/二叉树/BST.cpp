@@ -4,6 +4,7 @@ int pos;
 int mycount;
 int charcount;
 int numcount;
+int leap;
 struct treeNode{
     //这是结点的值
     char data;
@@ -19,7 +20,7 @@ struct treeNode{
 treeNode* tree_init(char order[]){//利用先根序列遍历
     //cout<<order[pos]<<endl;
     if((*order<'a'||*order>'z')&&(*order<'A'||*order>'Z')&&(*order<'0'||*order>'9')&&*order!='#'){
-        //cout<<"till the end";//输入序列到达底部
+        cout<<"till the end";//输入序列到达底部
         return NULL;
     }
     
@@ -55,8 +56,12 @@ void firstacess(treeNode *x){//递归先序遍历
     }
 void middleacess(treeNode *x){//递归中序遍历
     if(x!=NULL){     
+        if(x->left==NULL&&x->right==NULL)
+        {
+            leap++;
+        }
         middleacess(x->left);//中序访问左子树
-        cout<<x->data;//访问根节点
+        cout<<x->key<<",";//访问根节点
         middleacess(x->right);//中序访问右子树
     }
     
@@ -183,28 +188,32 @@ void levelacess(treeNode *x){//层次遍历
     }
 }
 void InsertBST(treeNode *x,char t,int key){
-    treeNode *p=x;
-    treeNode *q=x;
-    if(x=NULL){
+  
+    if(x==NULL){
+      
+        x=(treeNode*)malloc(sizeof(treeNode));
         x->data=t;
         x->key=key;
         x->left=NULL;
         x->right=NULL;
-        
+      
+
     }
     else
     {
+          treeNode *p=x;
+    treeNode *q=x;
         while(p!=NULL){
             q=p;
             if(p->key<key){
-                p=p->left;
-            }
-            else if(p->key>key){
                 p=p->right;
             }
+            else if(p->key>key){
+                p=p->left;
+            }
         else{
-            return;
-        }
+           return;//一样的数字，没必要插入，直接返回
+          }
         }    
         p=(treeNode*)malloc(sizeof(treeNode));       
         p->data=t;
@@ -229,12 +238,12 @@ bool searchBST(treeNode *p,int key){
         }
         else if(x->key>key)
         {
-            x=x->right;
+            x=x->left;
 
         }
         else if(x->key<key)
         {
-            x=x->left;
+            x=x->right;
         }
     }
     return false;
@@ -244,7 +253,9 @@ void deleteBST(treeNode *p,int key){
     treeNode* t=x;
     while(x!=NULL){
         if(x->key==key){
+           cout<<"找到";
             if(x->right!=NULL&&x->left!=NULL){
+               cout<<"他有左右子树"<<endl;
                 treeNode *maxpl=x->left;
                 treeNode *xr=x->right;
                 while(maxpl->right!=NULL){
@@ -255,7 +266,41 @@ void deleteBST(treeNode *p,int key){
                     t->left=x->left;
                 }
                 else{
-                    t->right=x->right;
+                    t->right=x->left;
+                }
+                free(x);
+            }
+            else if(x->right!=NULL){
+                    cout<<"他有左子树"<<endl;
+                    treeNode* tt=x->left;
+                if(t->key>key){
+                    t->left=tt;
+                    free(x);
+                }
+                else{
+                    t->right=tt;
+                    free(x);
+                }
+            }
+            else if(x->left!=NULL){
+                cout<<"它有右子树"<<endl;
+                treeNode* tt=x->right;
+                if(t->key>key){
+                    t->left=tt;
+                    free(x);
+                }
+                else{
+                    t->right=tt;
+                    free(x);
+                }
+            }
+            else{
+                 cout<<"没子树"<<endl;
+                 if(t->key>key){
+                    t->left=NULL;
+                }
+                else{
+                    t->right=NULL;
                 }
                 free(x);
             }
@@ -265,13 +310,13 @@ void deleteBST(treeNode *p,int key){
         else if(x->key>key)
         {
             t=x;
-            x=x->right;
+            x=x->left;
 
         }
         else if(x->key<key)
         {
             t=x;
-            x=x->left;
+            x=x->right;
         }
         
     }
@@ -280,27 +325,36 @@ void deleteBST(treeNode *p,int key){
 int main(){
 numcount=0;
 charcount=0;
-char a[]="";
+int a=0;
+int num=0;
+ leap=0;
 pos=0;
-cin>>a;
-treeNode *x=tree_init(a);
 mycount=0;
-//cout<<x->left->left->data;
-cout<<"这是一个树的递归先序遍历"<<endl;
-firstacess(x);
-cout<<endl<<"这是一个树的非递归先序遍历"<<endl;
-Nfirstacess(x);
-cout<<endl<<"这是一个树的递归中序遍历"<<endl;
+cin>>a;
+
+treeNode *x=(treeNode*)malloc(sizeof(treeNode));
+x->data='a';
+cin>>x->key;
+x->left=NULL;
+x->right=NULL;
+
+for(int i=1;i<=a;i++){
+    cin>>num;
+    //cout<<num;
+    InsertBST(x,'a',num);
+
+}
+InsertBST(x,'a',70);
 middleacess(x);
-cout<<endl<<"这是一个树的非递归中序遍历"<<endl;
-Nmiddleacess(x);
-cout<<endl<<"这是一个树的递归后序遍历"<<endl;
-backacess(x);
-cout<<endl<<"这是一个树的非递归后序遍历"<<endl;
-Nbackacess(x);
-cout<<endl<<"这是一个树的层次遍历"<<endl;
-levelacess(x);
-cout<<endl<<"数字个数为："<<numcount<<",字母个数为："<<charcount<<endl;
-delete_tree(x);//销毁树
+cout<<endl;
+if(searchBST(x,12)){
+    cout<<"找到了"<<endl;
+}
+else{
+    cout<<"没找到"<<endl;
+}
+cout<<"叶子节点个数是："<<leap<<endl;
+deleteBST(x,27);
+middleacess(x);
 return 0;
 }

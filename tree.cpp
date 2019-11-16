@@ -239,44 +239,6 @@ bool searchBST(treeNode *p,int key){
     }
     return false;
 }
-void deleteBST(treeNode *p,int key){
-     treeNode *x=p;
-    treeNode* t=x;
-    while(x!=NULL){
-        if(x->key==key){
-            if(x->right!=NULL&&x->left!=NULL){
-                treeNode *maxpl=x->left;
-                treeNode *xr=x->right;
-                while(maxpl->right!=NULL){
-                    maxpl=maxpl->right;
-                }
-                maxpl->right=xr;
-                if(t->key>key){
-                    t->left=x->left;
-                }
-                else{
-                    t->right=x->right;
-                }
-                free(x);
-            }
-            return ;
-
-        }
-        else if(x->key>key)
-        {
-            t=x;
-            x=x->right;
-
-        }
-        else if(x->key<key)
-        {
-            t=x;
-            x=x->left;
-        }
-        
-    }
-    return ;
-}
 int main(){
 numcount=0;
 charcount=0;

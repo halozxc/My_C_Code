@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<windows.h>
 #include<time.h>
+#include<stdio.h>
 using namespace std;
 
 void graphic(int a[],int max)

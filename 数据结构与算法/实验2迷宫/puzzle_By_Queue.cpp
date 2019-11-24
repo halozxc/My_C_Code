@@ -10,7 +10,7 @@ struct Pvector2{
     vector2 point;
     Pvector2 *last;
 };
-vector2 dir[7],dem;
+vector2 dir[3],dem;
 queue<vector2> path;//队列
 Pvector2 *h;
 Pvector2* wfs(vector2 pos,vector2 tar)
@@ -80,13 +80,10 @@ Pvector2* reverse(Pvector2* head){
 
 int main(){
     dir[0].x=0,dir[0].y=1;
-    dir[1].x=1,dir[1].y=1;
-    dir[2].x=1,dir[2].y=0;
-    dir[3].x=1,dir[3].y=-1;  
-    dir[4].x=0,dir[4].y=-1;
-    dir[5].x=-1,dir[5].y=-1;
-    dir[6].x=-1,dir[6].y=0;
-    dir[7].x=-1,dir[7].y=1;
+    dir[1].x=1,dir[1].y=0;
+    dir[2].x=-1,dir[2].y=0;
+    dir[3].x=0,dir[3].y=-1;  
+    
     vector2 tar,pos;
     cin>>dem.x>>dem.y;
     cout<<dem.x<<dem.y;

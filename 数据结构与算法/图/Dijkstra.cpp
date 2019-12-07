@@ -49,7 +49,7 @@ int main(){
   
     for(int i=1;i<=u;i++){
         
-        cout<<s<<"µ½"<<i<<"µÄ¾àÀëÎª"<<dis[i]<<endl;
+        cout<<s<<"to"<<i<<"length:"<<dis[i]<<endl;
         cout<<"path is"<<i<<",";
         for(int j=0;j<path[i].size();j++){
             cout<<path[i][j]<<",";

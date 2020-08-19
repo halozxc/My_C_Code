@@ -3,17 +3,17 @@
         {
             "name": "MinGW",
             "intelliSenseMode": "clang-x64",
-            "compilerPath": "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc.exe",
+            "compilerPath": "C:/mingw64/bin/gcc.exe",
             "includePath": [
                 "${workspaceFolder}",
-                "C:/Program Files (x86)/Dev-Cpp/MinGW64/include"
+                "C:/mingw64/include"
 
             ],
             "defines": [],
             "browse": {
                 "path": [
                     "${workspaceFolder}",
-                    "C:/Program Files (x86)/Dev-Cpp/MinGW64/include"
+                    "C:/mingw64/include"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
